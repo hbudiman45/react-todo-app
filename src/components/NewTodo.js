@@ -30,9 +30,7 @@ const NewTodo = () => {
             className="form-control"
             placeholder="What are you going to do?"
           />
-          <button role="submit" className="btn btn-sm btn-primary mx-2">
-            Add
-          </button>
+          <button className="btn btn-sm btn-primary mx-2">Add</button>
         </form>
       </div>
     </div>

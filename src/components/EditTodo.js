@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const EditTodo = ({ currentTodo, setEditing }) => {
+const EditTodo = ({ currentTodo, setEditing, updateTodo }) => {
   const [editTodo, setEditTodo] = useState(currentTodo);
 
   useEffect(() => {
@@ -13,17 +13,17 @@ const EditTodo = ({ currentTodo, setEditing }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert("submit");
-    // updateTodo()
+    updateTodo(editTodo.id, editTodo);
   };
 
   return (
     <div className="card my-2 shadow-sm bg-white rounded">
       <div className="card-body">
-        <form className="d-flex justify-content-around">
+        <form onSubmit={handleSubmit} className="d-flex justify-content-around">
           <input
             type="text"
-            value={currentTodo.title}
+            value={editTodo.title}
+            name="title"
             onChange={handleTodo}
             className="form-control"
           />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Fragment } from "react";
+import React, { useState, useContext } from "react";
 import TodoItem from "./TodoItem";
 import Pagination from "./Pagination";
 import { TodoContex } from "./TodoContex";
@@ -29,13 +29,12 @@ const TodoLists = () => {
   const handleEdit = todoSelected => {
     setEditing(true);
     setCurrentTodo(todoSelected);
-    console.log(todoSelected);
   };
 
-  const updateTodo = () => {
+  const updateTodo = (id, updatedTodo) => {
     setEditing(false);
-
-    setTodo(todo.map());
+    console.log(id, updatedTodo);
+    setTodo(todo.map(t => (t.id === id ? updatedTodo : t)));
   };
 
   // Get Current Posts
@@ -60,6 +59,7 @@ const TodoLists = () => {
             onDelete={handleDelete}
             handleTask={handleTask}
             handleEdit={handleEdit}
+            updateTodo={updateTodo}
           />
           <Pagination
             todosPerPage={todosPerPage}
