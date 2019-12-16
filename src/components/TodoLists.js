@@ -7,7 +7,7 @@ import EditTodo from "./EditTodo";
 
 const TodoLists = () => {
   const [todo, setTodo] = useContext(TodoContex);
-  const [currentTodo, setCurrentTodo] = useState();
+  const [currentTodo, setCurrentTodo] = useState([]);
   const [editing, setEditing] = useState(false);
 
   // pagination
@@ -31,10 +31,9 @@ const TodoLists = () => {
     setCurrentTodo(todoSelected);
   };
 
-  const updateTodo = (id, updatedTodo) => {
+  const updateTodo = (editId, updatedTodo) => {
     setEditing(false);
-    console.log(id, updatedTodo);
-    setTodo(todo.map(t => (t.id === id ? updatedTodo : t)));
+    setTodo(todo.map(t => (t.id === editId ? updatedTodo : t)));
   };
 
   // Get Current Posts
@@ -47,11 +46,14 @@ const TodoLists = () => {
   return (
     <div className="todo">
       {editing ? (
-        <EditTodo currentTodo={currentTodo} setEditing={setEditing} />
+        <EditTodo
+          currentTodo={currentTodo}
+          setEditing={setEditing}
+          updateTodo={updateTodo}
+        />
       ) : (
         <NewTodo />
       )}
-      {/* <NewTodo /> */}
       <div className="card shadow-sm bg-white rounded">
         <div className="card-body">
           <TodoItem
@@ -59,7 +61,6 @@ const TodoLists = () => {
             onDelete={handleDelete}
             handleTask={handleTask}
             handleEdit={handleEdit}
-            updateTodo={updateTodo}
           />
           <Pagination
             todosPerPage={todosPerPage}

@@ -5,10 +5,10 @@ const EditTodo = ({ currentTodo, setEditing, updateTodo }) => {
 
   useEffect(() => {
     setEditTodo(currentTodo);
-  }, [currentTodo]);
+  }, []);
 
   const handleTodo = event => {
-    setEditTodo(event.target.value);
+    setEditTodo({ ...editTodo, title: event.target.value });
   };
 
   const handleSubmit = event => {

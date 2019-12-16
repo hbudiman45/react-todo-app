@@ -7,7 +7,7 @@ const TodoItem = ({ todos, onDelete, handleTask, handleEdit }) => {
         <tr>
           <th scope="col"> </th>
           <th scope="col">Todo</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>

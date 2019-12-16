@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { TodoContex } from "./TodoContex";
+import axios from "axios";
 
 const NewTodo = () => {
   const [addTodo, setAddTodo] = useState([]);
