@@ -15,7 +15,7 @@ export const TodoProvider = props => {
       setTodo(res.data);
     };
 
-    fetchPosts();
+    // fetchPosts();
   }, []);
   return (
     <TodoContex.Provider value={[todo, setTodo]}>

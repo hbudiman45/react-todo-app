@@ -12,9 +12,9 @@ function App() {
           <h1>React ToDo App</h1>
           <TodoLists />
           <br />
-          <p className="footer">
+          {/* <p className="footer">
             REST API from: jsonplaceholder.typecode.com/todos
-          </p>
+          </p> */}
         </div>
       </div>
     </TodoProvider>
